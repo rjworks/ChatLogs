@@ -16,11 +16,16 @@ class ChatLogs extends PluginBase implements Listener
 
     public function onChat(PlayerChatEvent $event)
     {
-        if($event->isCancelled()) return;
-        $today = date("Y-m-d");
-        $name = $event->getPlayer()->getName();
-        $file = fopen($this->getDataFolder() . "{$today}.txt", "a") or die("Unable to open file!");
-        fwrite($file, "[{$today} " . date("h:i:sA") . "] {$name} -> {$event->getMessage()}\n");
-        fclose($file);
+        if($event->isCancelled())
+            return;
+        try{
+            $today = date("Y-m-d");
+            $name = $event->getPlayer()->getName();
+            $file = fopen($this->getDataFolder() . "{$today}.txt", "a") or die("Unable to open file!");
+            fwrite($file, "[{$today} " . date("h:i:sA") . "] {$name} -> {$event->getMessage()}\n");
+            fclose($file);
+        }catch(\Exception $e){
+            $this->getServer()->getLogger()->warning($e->getMessage());
+        }
     }
 }
