@@ -1,5 +1,5 @@
 name: ChatLogs
-main: r\jworks\ChatLogs
+main: rjworks\chatlogs\ChatLogs
 version: 1.0
 api: 3.0.0
 author: rjworks

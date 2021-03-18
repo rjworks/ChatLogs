@@ -1,6 +1,6 @@
 <?php
 
-namespace r\jworks;
+namespace rjworks\chatlogs;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerChatEvent;
